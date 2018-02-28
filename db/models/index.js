@@ -1,9 +1,9 @@
 'use strict';
 
-const Product = require('./product')
-const Review = require('./review');
+const Question = require('./question');
+const Survey = require('./survey');
 
-Product.hasMany(Review);
-Review.belongsTo(Product);
+Survey.hasMany(Question, {onDelete: 'cascade'});
+Question.belongsTo(Survey);
 
-module.exports = {Product, Review};
+module.exports = { Survey, Question};

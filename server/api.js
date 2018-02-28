@@ -1,10 +1,10 @@
 const api = module.exports = require('express').Router()
-const products = require('./products');
-const reviews = require('./reviews');
+const survey = require('./survey');
+const question = require('./question');
+
 // import products from './products';
 api
-  .get('/express-test', (req, res) => res.send({express: 'working!'})) //demo route to prove api is working
-  .use('/products', products)
-  .use('/reviews', reviews)
+  .use('/survey', survey)
+  .use('/question', question);
 // No routes matched? 404.
 api.use((req, res) => res.status(404).end())
