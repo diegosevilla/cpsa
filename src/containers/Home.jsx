@@ -11,7 +11,6 @@ class Home extends Component{
         e.preventDefault();
         this.props.createSurvey().then((res) => {
           window.location = '/create-survey/' + this.props.survey.id;
-          $('!asd').val();
         })
         .catch((err) => {
           console.log(JSON.stringify(err));

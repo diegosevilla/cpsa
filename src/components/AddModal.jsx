@@ -26,8 +26,8 @@ class AddModal extends Component{
           newQuestion.defaultValue = $('#defaultValue').val();
           break;
         case 'Number':
-          newQuestion.minValue = $('#minValue').val();
-          newQuestion.maxValue = $('#maxValue').val();
+          newQuestion.minVal = $('#minValue').val();
+          newQuestion.maxVal = $('#maxValue').val();
           newQuestion.step = $('#step').val();
           break;
         default:
