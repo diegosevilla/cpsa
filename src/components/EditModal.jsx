@@ -23,8 +23,8 @@ class EditModal extends Component{
           editedEntry.defaultValue = $('#defaultValue-'+input.id).val();
           break;
         case 'Number':
-          editedEntry.minValue = $('#minValue-'+input.id).val();
-          editedEntry.maxValue = $('#maxValue-'+input.id).val();
+          editedEntry.minVal = $('#minValue-'+input.id).val();
+          editedEntry.maxVal = $('#maxValue-'+input.id).val();
           editedEntry.step = $('#step-'+input.id).val();
           break;
         default:

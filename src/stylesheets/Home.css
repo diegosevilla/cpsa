@@ -1,0 +1,28 @@
+body{}
+
+.bg{
+	background-image: url("./../images/bg.jpg");
+	background-size: cover no-repeat;
+}
+
+.overlay{
+	background-size: cover;
+	background-color: black;
+	background: rgba(20,20,20,0.8);
+}
+
+.empty{
+	height: 115px;
+}
+
+.headerTitle{
+	font-size:63px;
+}
+
+.viewResults, .createSurvey{
+	margin: 10px;
+}
+
+.headerCreate, .headerView{
+	color: white;
+}

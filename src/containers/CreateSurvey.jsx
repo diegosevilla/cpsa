@@ -14,6 +14,8 @@ import EditModal  from '../components/EditModal';
 import AddModal from '../components/AddModal'
 import { fetchSurvey, createQuestion, deleteQuestion, updateSurvey} from './../actions/index';
 
+import styles from './../stylesheets/CreateSurvey.css';
+
 const $ = window.$;
 const Materialize = window.Materialize
 class CreateSurvey extends Component{
@@ -65,11 +67,11 @@ class CreateSurvey extends Component{
           default: newQuestion = <CheckBox key={input.id} input={input}/>;
         }
         inputs.push(
-          <Row key={input.id} style={{'backgroundColor': 'pink', 'marginLeft': '27%', 'width':'50%'}}>
-            <Col style={{'backgroundColor': 'blue', 'marginTop': '0%', 'width':'75%'}}>
+          <Row className="center" key={input.id} style={{'marginTop': '1%', 'width': '50%','float': 'center'}}>
+            <Col style={{'backgroundColor': '#ededff', 'borderRadius': '5px','paddingTop': '5px', 'marginTop': '0%', 'width':'73%'}}>
               {newQuestion}
             </Col>
-            <Col style={{'backgroundColor': 'red', 'marginTop': '2%', 'width':'25%'}}>
+            <Col style={{'marginTop': '1%', 'width':'10%'}}>
               <EditModal key={input.id+'-edit'} input={input}/>
               <Button key={input.id+'remove'} s={12} floating small='true' onClick={(e) => this.remove(e, input)} className='red' waves='light' tooltip='Delete'> <Icon> delete </Icon> </Button>
             </Col>
@@ -78,30 +80,32 @@ class CreateSurvey extends Component{
       });
 
       return(
-        <div>
+        <div className='bgCS'>
           <Header/>
-          <div className='center'>
-            <h5> Create Survey </h5>
-            <Row>
-              <h4>  {survey.surveyName} </h4>
-              <Modal id='editTitle' header='Edit Survey Title' trigger={<Button> <Icon> edit </Icon> Edit Survey Title </Button>}>
-                <form onSubmit={(e) => this.editTitle(e) }>
-                  <Input id='surveyName' required='true' label='Survey Title' defaultValue={survey.surveyName}/>
-                  <Input className='btn' type='submit'/>
-                </form>
-              </Modal>
+          <div>
+            <div className="essentials center">
+              <div className="survId center">
+                <h5><b>SURVEY ID:</b> {survey.surveyId} </h5>
+            </div>
+            <br/><br/>
+              <Row>
+                <div className="survTitle center">
+                  <h3> {survey.surveyName} </h3>
+                </div>  
+                <Modal id='editTitle' header='Edit Survey Title' trigger={<Button className="btnEditTitle blue-grey dark-1"><Icon> edit </Icon> Survey Title </Button>}>
+                  <form onSubmit={(e) => this.editTitle(e) }>
+                    <Input id='surveyName' required='true' label='Survey Title' defaultValue={survey.surveyName}/>
+                    <Input className='btn blue-grey darken-1' type='submit'/>
+                  </form>
+                </Modal>
+                <AddModal surveyId={survey.id+''}/>
+                <Button className="btnSubmit  blue-grey dark-1" onClick={(e) => this.submit(e)}> <Icon> file_upload </Icon> Submit </Button>
+              </Row>
+            </div>
+             <Row style={{'float': 'center'}}>
+                {inputs}
             </Row>
-            <Row>
-              <h4> surveyId: {survey.surveyId} </h4>
-            </Row>
-            <Row>
-              <AddModal surveyId={survey.id+''}/>
-              <Button onClick={(e) => this.submit(e)}> <Icon> file_upload </Icon> Submit </Button>
-            </Row>
-            <Row>
-              {inputs}
-            </Row>
-          </div>
+          </div>  
         </div>
       )
     }

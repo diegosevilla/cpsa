@@ -4,6 +4,7 @@ import Header from './../components/Header';
 import {Button} from 'react-materialize';
 import { connect } from 'react-redux';
 import { createSurvey } from './../actions/index';
+import styles from './../stylesheets/Home.css';
 const Materialize = window.Materialize;
 
 class Home extends Component{
@@ -11,7 +12,6 @@ class Home extends Component{
         e.preventDefault();
         this.props.createSurvey().then((res) => {
           window.location = '/create-survey/' + this.props.survey.id;
-          $('!asd').val();
         })
         .catch((err) => {
           console.log(JSON.stringify(err));
@@ -23,24 +23,24 @@ class Home extends Component{
       return(
         <div>
           <Header/>
-          <div className="section no-pad-bot" id="index-banner">
-            <div className="container">
-              <br/><br/>
-              <h1 className="header center orange-text">Cross Platform Survey Application</h1>
-              <div className="row center">
-                <h5 className="header col s12 light">Web based application for creating and designing surveys</h5>
-              </div>
-              <div className="row center">
-                <Button onClick={(e) => this.createSurveyEvent(e)} className="btn-large waves-effect waves-light teal">Create Survey</Button>
-              </div>
-              <div className="row center">
-                <h5 className="header col s12 light">View results of surveys </h5>
-              </div>
-              <div className="row center">
-                <a href="/view-result" className="btn-large waves-effect waves-light teal">View Results</a>
+          <div className="bg">
+            <div className="overlay">
+              <div className="empty"></div>
+              <div className="section1 no-pad-bot" id="index-banner">
+                <div className="container">
+                  <h1 className="headerTitle center orange-text">Cross Platform Survey Application</h1>
+                  <div className="row center">
+                    <h5 className="headerCreate col s12 light">Web Application for Creating and Designing Surveys</h5>
+                  </div>
+                  <div className="row center">
+                    <Button onClick={(e) => this.createSurveyEvent(e)} className="createSurvey btn-large waves-effect waves-light blue-grey darken-1">Create Survey</Button>
+                    <a href="/view-result" className="viewResults btn-large waves-effect waves-light blue-grey darken-1">View Results</a>
+                  </div>
+                </div>
+                <div className="empty"></div>
               </div>
             </div>
-          </div>
+          </div>    
         </div>
       )
     }

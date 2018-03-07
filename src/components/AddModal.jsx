@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal, Button, Input, Row} from 'react-materialize';
+import {Modal, Button, Icon, Input, Row} from 'react-materialize';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -26,8 +26,8 @@ class AddModal extends Component{
           newQuestion.defaultValue = $('#defaultValue').val();
           break;
         case 'Number':
-          newQuestion.minValue = $('#minValue').val();
-          newQuestion.maxValue = $('#maxValue').val();
+          newQuestion.minVal = $('#minValue').val();
+          newQuestion.maxVal = $('#maxValue').val();
           newQuestion.step = $('#step').val();
           break;
         default:
@@ -108,7 +108,7 @@ class AddModal extends Component{
       }
 
       return(
-        <Modal id='addModal' s={4} header='Insert new question' trigger={<Button> Insert Question </Button>}>
+        <Modal id='addModal' s={4} header='Add Survey Question' trigger={<Button className="blue-grey darken-1"> <Icon> add_circle_outline</Icon> Add Question</Button>}>
           <form id='addForm' onSubmit={(e) => this.add(e)}>
             <Row>
                 <Input required='true' s={12} id='label' name='label' label='Label' defaultValue=''/>
@@ -127,7 +127,7 @@ class AddModal extends Component{
 
             </Row>
             <Row>
-              <Input type='submit' className='btn'/>
+              <Input type='submit' className='btn blue-grey darken-1'/>
             </Row>
           </form>
         </Modal>
