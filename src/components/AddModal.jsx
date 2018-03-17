@@ -108,7 +108,7 @@ class AddModal extends Component{
       }
 
       return(
-        <Modal id='addModal' s={4} header='Insert new question' trigger={<Button> Insert Question </Button>}>
+        <Modal id='addModal' s={4} header='Insert new question' trigger={<Button class icon='add'> Add Question </Button>}>
           <form id='addForm' onSubmit={(e) => this.add(e)}>
             <Row>
                 <Input required='true' s={12} id='label' name='label' label='Label' defaultValue=''/>

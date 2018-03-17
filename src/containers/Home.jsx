@@ -1,15 +1,17 @@
 import React, {Component} from 'react'
 import {PropTypes}  from 'prop-types';
 import Header from './../components/Header';
-import {Button} from 'react-materialize';
+import {Button, Modal, Input} from 'react-materialize';
 import { connect } from 'react-redux';
 import { createSurvey } from './../actions/index';
 const Materialize = window.Materialize;
+const $ = window.$;
 
 class Home extends Component{
     createSurveyEvent (e){
         e.preventDefault();
-        this.props.createSurvey().then((res) => {
+        let surveyName = $('#surveyName').val();
+        this.props.createSurvey(surveyName).then((res) => {
           window.location = '/create-survey/' + this.props.survey.id;
         })
         .catch((err) => {
@@ -30,7 +32,12 @@ class Home extends Component{
                 <h5 className="header col s12 light">Web based application for creating and designing surveys</h5>
               </div>
               <div className="row center">
-                <Button onClick={(e) => this.createSurveyEvent(e)} className="btn-large waves-effect waves-light teal">Create Survey</Button>
+                <Modal id='createSurveyModal' header='Create Survey' trigger={<Button className="btn-large waves-effect waves-light teal"> Create Survey </Button>}>
+                  <form onSubmit={(e) => this.createSurveyEvent(e) }>
+                    <Input id='surveyName' required='true' label='Survey Title'/>
+                    <Input className='btn' type='submit'/>
+                  </form>
+                </Modal>
               </div>
               <div className="row center">
                 <h5 className="header col s12 light">View results of surveys </h5>

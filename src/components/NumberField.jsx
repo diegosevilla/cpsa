@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import {Input, Col} from 'react-materialize';
 
 class NumberField extends React.Component {
-    componentDidMount(){
-      alert(JSON.stringify(this.props.input));
-    }
-
     render() {
         const input = this.props.input;
         return (

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+  import React, {Component} from 'react';
 import {PropTypes}  from 'prop-types';
 import {Button, Icon, Row, Input, Modal, Col} from 'react-materialize';
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ class CreateSurvey extends Component{
     this.props.fetchSurvey(id);
   }
 
-  ComponentDidMount(){
+  componentDidUpdate(){
     $('#surveyName').val(this.props.survey.surveyName);
   }
 
@@ -81,7 +81,6 @@ class CreateSurvey extends Component{
         <div>
           <Header/>
           <div className='center'>
-            <h5> Create Survey </h5>
             <Row>
               <h4>  {survey.surveyName} </h4>
               <Modal id='editTitle' header='Edit Survey Title' trigger={<Button> <Icon> edit </Icon> Edit Survey Title </Button>}>

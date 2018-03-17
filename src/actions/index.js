@@ -21,10 +21,16 @@ export function fetchSurvey(id){
   }
 };
 
-export function createSurvey(){
+export function createSurvey(surveyName){
   return (dispatch) => {
-    return fetch('/api/survey/create', {method: 'POST'})
-    .then((res) => res.json())
+    let formData = 'surveyName='+surveyName;
+    return fetch('/api/survey/create', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      body: formData
+    }).then((res) => res.json())
     .then((survey) =>  dispatch(fetchSurvey(survey.id)))
     .catch((err) => {
       console.log(err);
