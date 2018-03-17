@@ -4,6 +4,7 @@ import Header from './../components/Header';
 import {Button, Modal, Input} from 'react-materialize';
 import { connect } from 'react-redux';
 import { createSurvey } from './../actions/index';
+import styles from './../stylesheets/Home.css';
 const Materialize = window.Materialize;
 const $ = window.$;
 

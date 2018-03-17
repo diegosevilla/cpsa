@@ -14,6 +14,8 @@ import EditModal  from '../components/EditModal';
 import AddModal from '../components/AddModal'
 import { fetchSurvey, createQuestion, deleteQuestion, updateSurvey} from './../actions/index';
 
+import styles from './../stylesheets/CreateSurvey.css';
+
 const $ = window.$;
 const Materialize = window.Materialize
 class CreateSurvey extends Component{
@@ -65,11 +67,11 @@ class CreateSurvey extends Component{
           default: newQuestion = <CheckBox key={input.id} input={input}/>;
         }
         inputs.push(
-          <Row key={input.id} style={{'backgroundColor': 'pink', 'marginLeft': '27%', 'width':'50%'}}>
-            <Col style={{'backgroundColor': 'blue', 'marginTop': '0%', 'width':'75%'}}>
+          <Row className="center" key={input.id} style={{'marginTop': '1%', 'width': '50%','float': 'center'}}>
+            <Col style={{'backgroundColor': '#ededff', 'borderRadius': '5px','paddingTop': '5px', 'marginTop': '0%', 'width':'73%'}}>
               {newQuestion}
             </Col>
-            <Col style={{'backgroundColor': 'red', 'marginTop': '2%', 'width':'25%'}}>
+            <Col style={{'marginTop': '1%', 'width':'10%'}}>
               <EditModal key={input.id+'-edit'} input={input}/>
               <Button key={input.id+'remove'} s={12} floating small='true' onClick={(e) => this.remove(e, input)} className='red' waves='light' tooltip='Delete'> <Icon> delete </Icon> </Button>
             </Col>
@@ -78,7 +80,7 @@ class CreateSurvey extends Component{
       });
 
       return(
-        <div>
+        <div className='bgCS'>
           <Header/>
           <div className='center'>
             <Row>

@@ -13,7 +13,7 @@ class CheckBox extends React.Component {
 
         return (
           <Col>
-            <h5 style={{'backgroundColor': 'green', 'margin': '0%'}}> {input.label} </h5>
+            <h5 style={{'margin': '0%', 'marginBottom': '2%'}}> {input.label} </h5>
             {checkBox}
           </Col>
         );

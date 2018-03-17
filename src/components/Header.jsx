@@ -4,7 +4,7 @@ import {Navbar} from 'react-materialize';
 class Header extends Component{
     render() {
       return(
-        <Navbar className="blue-grey darken-1" role="navigation">
+        <Navbar className="blue-grey darken-1" role="navigation" style={{'paddingLeft': '-55%'}}>
           <div className="nav-wrapper container">
             <a id="logo-container" href="/" className="brand-logo">Logo</a>
           </div>
