@@ -21,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //json parser
 app.use(bodyParser.json())
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '..', 'build')))
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'));
+} else
+	app.use(express.static(path.resolve(__dirname, '..', 'build')))
 // Serve our api
 app.set('trust proxy', 1) // trust first proxy
 
