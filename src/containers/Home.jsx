@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {PropTypes}  from 'prop-types';
-import Header from './../components/Header';
-import {Button, Modal, Input} from 'react-materialize';
+import {Button, Modal, Input, Icon, Row} from 'react-materialize';
 import { connect } from 'react-redux';
 import { createSurvey } from './../actions/index';
 import styles from './../stylesheets/Home.css';
@@ -24,27 +23,47 @@ class Home extends Component{
     render() {
       return(
         <div>
-          <Header/>
-          <div className="section no-pad-bot" id="index-banner">
-            <div className="container">
-              <br/><br/>
-              <h1 className="header center orange-text">Cross Platform Survey Application</h1>
-              <div className="row center">
-                <h5 className="header col s12 light">Web based application for creating and designing surveys</h5>
-              </div>
-              <div className="row center">
-                <Modal id='createSurveyModal' header='Create Survey' trigger={<Button className="btn-large waves-effect waves-light teal"> Create Survey </Button>}>
-                  <form onSubmit={(e) => this.createSurveyEvent(e) }>
-                    <Input id='surveyName' required='true' label='Survey Title'/>
-                    <Input className='btn' type='submit'/>
-                  </form>
-                </Modal>
-              </div>
-              <div className="row center">
-                <h5 className="header col s12 light">View results of surveys </h5>
-              </div>
-              <div className="row center">
-                <a href="/view-result" className="btn-large waves-effect waves-light teal">View Results</a>
+          <div className='bg'>
+            <div className='overlay'>
+              <div className='empty'></div>
+              <div className='section1 no-pad-bot' id='index-banner'>
+                <div className='container'>
+                  <h1 className='headerTitle center orange-text'>Cross Platform Survey Application</h1>
+                  <div className='row center'>
+                    <h5 className='headerCreate col s12 light'>Web Application for Creating and Designing Surveys</h5>
+                  </div>
+                  <div className='row center'>
+                    <Modal header='Create New Survey' trigger={<Button className='createSurvey btn-large waves-effect waves-light blue-grey darken-1'>Create Survey</Button>}>
+                      <form onSubmit={(e) => this.createSurveyEvent(e) }>
+                        <Input id='surveyName' required='true' label='Survey Title'/>
+                        <Input className='btn blue-grey darken-1' type='submit'/>
+                      </form>
+                    </Modal>
+                    <a href='/view-result' className='viewResults btn-large waves-effect waves-light blue-grey darken-1'>View Results</a>
+                  </div>
+                </div>
+                <div className='empty'></div>
+                <Row className='row iconHolder'>
+                  <div className='col s12 m4 center'>
+                      <Icon large className='icon'> desktop_windows </Icon>
+                      <h5 className='center'>  Design </h5>
+                      <p className='light'> Use the web application to design and edit your survey questionnaire. </p>
+                  </div>
+
+                  <div className='col s12 m4 center'>
+                      <Icon large className='icon'> phone_android </Icon>
+                      <h5 className='center'>  Gather </h5>
+                      <p className='light'> Use the mobile app to gather data from respondents. </p>
+                  </div>
+
+                  <div className='col s12 m4 center'>
+                      <Icon large className='icon'> insert_chart </Icon>
+                      <h5 className='center'> Analyze </h5>
+                      <p className='light'> The web application also produces a graphical representation of data gathered. </p>
+                  </div>
+
+
+                </Row>
               </div>
             </div>
           </div>

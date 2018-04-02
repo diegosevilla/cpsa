@@ -17,7 +17,7 @@ const survey = (state = initialState, action) => {
             questions: action.survey.questions
         });
       default:
-         return state
+         return state;
    }
 }
 

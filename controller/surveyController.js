@@ -15,7 +15,7 @@ module.exports= {
   findOne: function(req, res, next){
     Survey.find({ where: {id:req.params.id}, include: [Question]})
     .then((survey) => {
-      if(!survey) res.status(404).send({message: 'Not found'})
+      if(!survey) res.status(404).send({id:-1});
       else {
         res.status(200).send(survey)
       }
@@ -28,7 +28,9 @@ module.exports= {
   create: function(req, res, next) {
     Survey.create({surveyName: req.body.surveyName})
     .then((survey) => {
+      req.session.survey = {id: survey.id};
       res.status(200).send(survey);
+      console.log('>>>>>' + JSON.stringify(req.session));
     }).catch((err) => {
       console.log(err);
       res.status(500).send(err);

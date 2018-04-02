@@ -1,3 +1,9 @@
+export function getSurvey(){
+    return (dispatch) => {
+      dispatch({type:'getSurvey'});
+    }
+}
+
 export const SET_SURVEY = "SET_SURVEY";
 export function setSurvey(survey){
   return {

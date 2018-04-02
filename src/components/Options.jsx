@@ -11,9 +11,9 @@ class Options extends React.Component {
         });
 
         return (
-          <Col style={{'textAlign': 'center'}}>
-            <h5 style={{'margin': '0%', 'marginTop': '2%'}}> {input.label} </h5>
-            <Input style={{'marginBottom': '10%', 'marginTop': '4%', 'float': 'center'}}  type='select'>
+          <Col style={{'height': '100px', 'textAlign': 'center'}}>
+            <h5 style={{'margin': '0%', 'marginTop': '1%', 'textAlign': 'center'}}> {input.label} </h5>
+            <Input style={{'width':'500px', 'marginLeft': '500px','marginBottom': '10%'}} type='select'>
               {options}
             </Input>
           </Col>

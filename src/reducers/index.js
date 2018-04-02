@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux';
 import survey from './survey';
 
 const Reducers = combineReducers({
-    survey,
+    survey: survey,
     routing: routerReducer
 });
 
